@@ -1,5 +1,5 @@
 {
-  "name": "oxid-esales/oxideshop-composer-plugin",
+  "name": "seidemann-web/oxideshop-composer-plugin",
   "description": "This file is mean to be used to install OXID eShop compilation.",
   "type": "composer-plugin",
   "keywords": ["oxidEshop", "plugin"],
@@ -9,6 +9,9 @@
   ],
   "minimum-stability": "dev",
   "prefer-stable": true,
+  "replace": {
+    "oxid-esales/oxideshop-composer-plugin": "2.x"
+  },
   "require": {
     "composer-plugin-api": "^1.0",
     "symfony/filesystem": "^3.0",
