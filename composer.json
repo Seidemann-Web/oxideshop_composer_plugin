@@ -10,7 +10,7 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "replace": {
-    "oxid-esales/oxideshop-composer-plugin": "3.x"
+    "oxid-esales/oxideshop-composer-plugin": "4.x"
   },
   "require": {
     "php": "^7.0",
