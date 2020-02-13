@@ -17,6 +17,7 @@ class ShopPackageInstaller extends AbstractPackageInstaller
 {
     const FILE_TO_CHECK_IF_PACKAGE_INSTALLED = 'index.php';
     const SHOP_SOURCE_CONFIGURATION_FILE = 'config.inc.php';
+    const FAVICON_FILE = 'favicon.ico';
     const OFFLINE_FILE = 'offline.html';
     const DISTRIBUTION_FILE_EXTENSION_MARK = '.dist';
     const SHOP_SOURCE_DIRECTORY = 'source';
@@ -70,6 +71,7 @@ class ShopPackageInstaller extends AbstractPackageInstaller
         $this->copySetupFiles($packagePath);
         $this->copyConfigurationDistFileWithinTarget();
         $this->copyHtaccessFiles($packagePath);
+        $this->copyFaviconFile($packagePath);
         $this->copyOfflineFile($packagePath);
         $this->copyRobotsExclusionFiles($packagePath);
     }
@@ -86,6 +88,7 @@ class ShopPackageInstaller extends AbstractPackageInstaller
             [self::HTACCESS_FILTER],
             [self::ROBOTS_EXCLUSION_FILTER],
             [self::SETUP_FILES_FILTER],
+            [self::FAVICON_FILE],
             [self::OFFLINE_FILE],
             $this->getVCSFilter(),
         ];
@@ -118,6 +121,19 @@ class ShopPackageInstaller extends AbstractPackageInstaller
         $this->copyFilesFromSourceToInstallationByFilter(
             $packagePath,
             self::HTACCESS_FILTER
+        );
+    }
+
+    /**
+     * Copy shop's favicon from package.
+     *
+     * @param string $packagePath Absolute path which points to shop's package directory.
+     */
+    private function copyFaviconFile($packagePath)
+    {
+        $this->copyFilesFromSourceToInstallationByFilter(
+            $packagePath,
+            self::FAVICON_FILE
         );
     }
 
